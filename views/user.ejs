@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Role</th>
+      </tr>
+      <tr>
+        <%dataUsers.forEach(user=>{%>
+          <td><%=user.id%></td>
+          <td><%=user.email%></td>
+          <td><%=user.role%></td>
+          if(user.role == 'Penjual'){
+            <td><a href="/mobil/<%=user.id%>/addCarTobiding"></a>Add Car</td>
+          }
+            <td><a href="/mobil">List Mobil</a></td>
+          
+          
+      
+      </tr>
+        <%})%>
+    </table>
+  </body>
+</html>
