@@ -1,25 +1,31 @@
-
 const express = require('express');
 const bodyParser = require('body-parser');
+const session = require('express-session');
 const app = express();
-const userRouter = require('./routers/user')
-const mobilRouter = require('./routers/mobil')
+const Home = require('./routers/index');
+const userRouter = require('./routers/user');
+const mobilRouter = require('./routers/mobil');
 
 
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.set('views','./views')
-app.set('view engine','ejs')
+//use session-express 
+app.use(session({
+  secret: 'easy-going'
+}))
+
+app.set('views','./views');
+app.set('view engine','ejs');
 
 
-app.get('/', function (req, res) {
- res.send('‘Hello World!’');
-})
+// app.get('/', function (req, res) {
+//  res.send('‘Hello World!’');
+// })
 
-
-app.use('/users',userRouter)
-app.use('/mobil',mobilRouter)
+app.use('/',Home);
+app.use('/users',userRouter);
+app.use('/mobil',mobilRouter);
 
 
 
