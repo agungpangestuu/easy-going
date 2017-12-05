@@ -1,7 +1,6 @@
-
 const express = require('express');
 const bodyParser = require('body-parser');
-const session = require('express-session')
+const session = require('express-session');
 const app = express();
 const Home = require('./routers/index');
 const userRouter = require('./routers/user');
@@ -10,6 +9,11 @@ const mobilRouter = require('./routers/mobil');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+//use session-express 
+app.use(session({
+  secret: 'easy-going'
+}))
 
 app.set('views','./views');
 app.set('view engine','ejs');

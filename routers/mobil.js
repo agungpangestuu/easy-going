@@ -1,34 +1,54 @@
 const express = require('express');
 const Models = require('../models');
+const CheckLogin = require('../helpers/checkLogin');
 
 const routers = express.Router();
 
-routers.get('/' , (req,res)=>{
-  res.render('mobil')
-})
 
-routers.get('/:id/addCarTobiding', (req,res)=>{
-  res.render('addMobil')
-})
 
-routers.post('/:id/addCarTobiding', (req,res)=>{
-  let dataMobil = {
-    name : req.body.name,
-    min_bid : req.body.min_bid,
-    max_bid : req.body.mix_bid,
-    time : req.body.time,
-    status : 'open',
-    UserId : req.params.id
-  }
-  Models.Mobil.create(dataMobil).then(()=>{
-    console.log('Mobil Added')
+//kalo mau table list mobil di update sesuai id nanti mesti ada id siapa yang logged in
+//(mungkin di session?)
+
+// routers.get('/' , (req,res)=>{
+//   Models.Mobil.findAll().then((dataMobil)=>{    //where:id = session ID
+//     let promiseMobil = dataMobil.map(mobil=>{
+//       return new Promise ((resolve,reject)=>{
+//         Models.User.findAll({
+//           where:{
+//             id:mobil.UserId
+//           }
+//         }).then(result=>{
+//           console.log('======================',result[0].email);
+//           if(result[0].email == 'null'){
+//             mobil.owner = ''
+//           }
+//           else{
+//             mobil.owner = result[0].email
+//           }
+//           resolve(mobil)
+//         })
+//       })
+//     })
+//   Promise.all(promiseMobil).then(dataMobil=>{
+//     console.log(dataMobil);
+//   res.render('mobil',{dataMobil : dataMobil})
+//    })
+//   })
+// })
+
+
+routers.get('/',(req,res)=>{
+  Models.Mobil.findAll().then(dataMobil=>{
+    res.render('mobil',{dataMobil : dataMobil})
   })
 })
+
+
 
 routers.get('/:id/delete', (req,res)=>{
   Models.Mobil.destroy({where: {id : req.params.id}})
   .then(()=>{
-  res.redirect('/')  
+  res.redirect('/mobil')  
   })
 })
 

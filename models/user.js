@@ -21,5 +21,9 @@ module.exports = (sequelize, DataTypes) => {
     });
   });
   
+  User.associate = function (models) {
+    User.hasMany(models.Mobil)
+    User.belongsToMany(models.Mobil, {through: 'bidding'})
+  };
   return User;
 };
