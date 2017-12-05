@@ -5,8 +5,20 @@
     <title></title>
   </head>
   <body>
-    <form action="/mobil/:id/addMobil" method="post">
-      
+    <form action="/users/<%=user.id%>/addCarTobiding" method="post">
+  Car Name:<br>
+  <input type="text" name="name">
+  <br>
+  Minimum Bid:<br>
+  <input type="number" name="min_bid">
+  <br>
+  Maximum Bid:<br>
+  <input type="number" name="max_bid">
+  <br>
+  Time Limit(hours):<br>
+  <input type="number" name="time">
+  <br>
+  <input type="submit" value="Submit">
       
     </form>
   </body>
