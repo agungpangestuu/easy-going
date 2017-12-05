@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const userRouter = require('./routers/user')
+const mobilRouter = require('.routers/mobil')
 
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -18,7 +19,7 @@ app.get('/', function (req, res) {
 
 
 app.use('/users',userRouter)
-
+app.use('/mobil',mobilRouter)
 
 
 
