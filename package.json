@@ -1,0 +1,27 @@
+{
+  "name": "easy-going",
+  "version": "1.0.0",
+  "description": "aplication web base in express yang bergerak dalam bidang jasa tansportasi / atau rent car",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agungpangestuu/easy-going.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/agungpangestuu/easy-going/issues"
+  },
+  "homepage": "https://github.com/agungpangestuu/easy-going#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "pg": "^7.4.0",
+    "sequelize": "^4.26.0",
+    "sequelize-cli": "^3.2.0"
+  }
+}
