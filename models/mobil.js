@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     max_bid: DataTypes.INTEGER,
     time: DataTypes.INTEGER,
     status: DataTypes.BOOLEAN
-  }
+  });
   Mobil.associate = function (models) {
     
   };

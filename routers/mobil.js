@@ -1,5 +1,5 @@
 const express = require('express');
-const Models = require('models');
+const Models = require('../models');
 
 const routers = express.Router();
 
@@ -8,7 +8,7 @@ routers.get('/' , (req,res)=>{
 })
 
 routers.get('/:id/addCarTobiding', (req,res)=>{
-  res.render('addCar')
+  res.render('addMobil')
 })
 
 routers.post('/:id/addCarTobiding', (req,res)=>{
@@ -20,7 +20,9 @@ routers.post('/:id/addCarTobiding', (req,res)=>{
     status : 'open',
     UserId : req.params.id
   }
-  Models.Mobil.create(dataMobil)
+  Models.Mobil.create(dataMobil).then(()=>{
+    console.log('Mobil Added')
+  })
 })
 
 routers.get('/:id/delete', (req,res)=>{
@@ -35,4 +37,4 @@ routers.get('/:id/delete', (req,res)=>{
 
 
 
-module.exports = router;
+module.exports = routers;
