@@ -16,10 +16,12 @@
           <td><%=user.id%></td>
           <td><%=user.email%></td>
           <td><%=user.role%></td>
-          if(user.role == 'Penjual'){
-            <td><a href="/mobil/<%=user.id%>/addCarTobiding"></a>Add Car</td>
-          }
-            <td><a href="/mobil">List Mobil</a></td>
+          <%if(user.role == 'Penjual'){%>
+            <td><a href="/users/<%=user.id%>/addCarTobiding">Add Car</a></td>
+          <%}%>
+          <%if(user.role == 'Renter'){%>
+            <td><a href="/users/<%=user.id%>/bid">Bid!</a></td>
+          <%}%>
           
           
       

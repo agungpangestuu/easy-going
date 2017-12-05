@@ -5,6 +5,7 @@
     <title></title>
   </head>
   <body>
+    <h1>BID YOUR CAR</h1>
     <table>
       <tr>
         <th>ID</th>
@@ -13,6 +14,7 @@
         <th>Maximum Bid</th>
         <th>Time Left (in Hours)</th>
         <th>Owner</th>
+        <th>Bid</th>
       </tr>
       <tr>
         <%dataMobil.forEach(mobil=>{%>
@@ -22,7 +24,15 @@
           <td><%=mobil.max_bid%></td>
           <td align = 'center'><%=mobil.time%></td>
           <td><%=mobil.UserId%></td>
-          <td><a href="/mobil/<%=mobil.id%>/delete"> Remove Post</a></td>
+          <%if(mobil.status){%>
+            <form action="/users/<%=user.id%>/bid/<%=mobil.id%>" method="post">
+              <td><input type="text" name="bid" value=""> <input type="submit" value="Submit"></td>
+              <%}%>
+            </form>
+          
+          <%if(mobil.status == false){%>
+          <td>"closed"</td>  
+        <%}%>
                 
       </tr>
         <%})%>
