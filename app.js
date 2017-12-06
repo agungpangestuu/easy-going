@@ -6,6 +6,11 @@ const Home = require('./routers/index');
 const userRouter = require('./routers/user');
 const mobilRouter = require('./routers/mobil');
 
+const cron = require('node-cron');
+ //buat jalanin otomatis sebuat task
+cron.schedule('* * * * *', function(){
+  console.log('running a task every minute');
+});
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
