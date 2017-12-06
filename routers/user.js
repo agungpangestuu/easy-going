@@ -36,22 +36,48 @@ router.post('/:id/addCarTobiding', (req,res)=>{
 })
 
 router.get('/:id/bid',(req,res)=>{
+  
   model.Mobil.findAll().then(dataMobil=>{
     model.User.findById(req.params.id).then(user=>{
-      res.render('addBid',{dataMobil : dataMobil, user : user})
+      dataMobil.forEach(mobil=>{
+        let now = new Date(mobil.createdAt)
+        mobil.timeLeft = new Date(now.setMinutes(now.getMinutes() + mobil.time))
+        // console.log(new Date(mobil.timeLeft));
+      })
+      model.bidding.find({
+        where:{UserId : req.params.id}
+      }).then(bids=>{
+          res.render('addBid',{dataMobil : dataMobil, user : user, bid : bids})
+      })
     })
   })
 })
 
 router.post('/:id/bid/:CarId',(req,res)=>{
-  let dataBid ={
-    UserId : req.params.id,
-    MobilId : req.params.CarId,
-    bid : req.body.bid
-  }
-  model.bidding.create(dataBid).then(()=>{
-    console.log('Bid Accepted');
-    res.redirect('/users')
+  model.bidding.find({
+    where:{UserId : req.params.id, MobilId: req.params.CarId}
+  }).then(bid=>{
+    if(bid){
+      let dataBid = {
+        bid : req.body.bid
+      }
+      model.bidding.update(dataBid,{where:{UserId:req.params.id,MobilId:req.params.CarId}})
+      .then(update=>{
+        console.log('updated')
+        res.redirect('/profile')
+      })
+    }
+    else{
+      let dataBid ={
+        UserId : req.params.id,
+        MobilId : req.params.CarId,
+        bid : req.body.bid
+      }
+      model.bidding.create(dataBid).then(()=>{
+        console.log('Bid Accepted');
+        res.redirect('/profile')
+      })
+    }
   })
 })
 

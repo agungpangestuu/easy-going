@@ -64,7 +64,7 @@ router.post('/register',(req,res)=>{
   let dataRegis = {
     email : req.body.email,
     password : req.body.password,
-    role : 'Penjual'
+    role : req.body.role
   }
   Models.User.create(dataRegis)
   .then(()=>{

@@ -9,6 +9,13 @@ router.get('/',(req,res)=>{
       models.bidding.findAll({
         where:{UserId:req.session.userid}
       }).then(bids=>{
+        for(let i = 0;i < mobils.length;i++){
+          for(let j = 0; j < bids.length;j++){
+            if(mobils[i].id == bids[j].MobilId){
+              bids[j].status = mobils[i].status
+            }
+          }
+        }
         console.log(bids);
         res.render('profile',{profile : user , dataMobil : mobils , dataBiddings : bids})
       })

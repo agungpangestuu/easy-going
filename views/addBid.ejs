@@ -12,9 +12,12 @@
         <th>Name of Car</th>
         <th>Minimum Bid</th>
         <th>Maximum Bid</th>
-        <th>Time Left (in Hours)</th>
-        <th>Owner</th>
+        <th>Current Bid</th>
+        <th>OwnerId</th>
         <th>Bid</th>
+        <th>
+        </th>
+        <th>Bid ends At</th>
       </tr>
       <tr>
         <%dataMobil.forEach(mobil=>{%>
@@ -22,17 +25,24 @@
           <td><%=mobil.name%></td>
           <td><%=mobil.min_bid%></td>
           <td><%=mobil.max_bid%></td>
-          <td align = 'center'><%=mobil.time%></td>
-          <td><%=mobil.UserId%></td>
-          <%if(mobil.status){%>
+          <td><%=bid.bid%></td>
+          <td align='center'><%=mobil.UserId%></td>
+          <%if(mobil.status == true){%>
             <form action="/users/<%=user.id%>/bid/<%=mobil.id%>" method="post">
-              <td><input type="text" name="bid" value=""> <input type="submit" value="Submit"></td>
-              <%}%>
+              <td><select name = "bid">
+                  <option value="<%=bid.bid + 50000%>"><%=bid.bid +50000%></option>
+                  <option value="<%=bid.bid + 100000%>"><%=bid.bid +100000%></option>
+                  <option value="<%=bid.bid + 150000%>"><%=bid.bid +150000%></option>
+                </select></td>
+     <td><input type="submit" value="Submit"></td></td>
+              
             </form>
-          
+          <%}%>
           <%if(mobil.status == false){%>
-          <td>"closed"</td>  
+          <td>CLOSED</td>  
         <%}%>
+        <td align = 'center'><%=mobil.timeLeft%></td>
+          
                 
       </tr>
         <%})%>
