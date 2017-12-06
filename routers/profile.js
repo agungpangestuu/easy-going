@@ -4,11 +4,21 @@ const models = require('../models');
 
 
 router.get('/',(req,res)=>{
-  models.User.findById(req.session.id).then((result)=>{
-    res.render('profile',{profile : result})
+  models.User.findById(req.session.userid).then((user)=>{
+    models.Mobil.findAll().then((mobils)=>{
+      models.bidding.findAll({
+        where:{UserId:req.session.userid}
+      }).then(bids=>{
+        console.log(bids);
+        res.render('profile',{profile : user , dataMobil : mobils , dataBiddings : bids})
+      })
+      
+    })
+  }).catch(err=>{
+    console.log(err);
   })
 })
 
-router.get('/',(req,res)=>{
-  
-})
+
+
+module.exports = router;

@@ -5,6 +5,7 @@ const app = express();
 const Home = require('./routers/index');
 const userRouter = require('./routers/user');
 const mobilRouter = require('./routers/mobil');
+const profileRouter = require('./routers/profile');
 
 const cron = require('node-cron');
  //buat jalanin otomatis sebuat task
@@ -20,6 +21,7 @@ app.use(session({
   secret: 'easy-going'
 }))
 
+
 app.set('views','./views');
 app.set('view engine','ejs');
 
@@ -29,6 +31,7 @@ app.set('view engine','ejs');
 // })
 
 app.use('/',Home);
+app.use('/profile',profileRouter)
 app.use('/users',userRouter);
 app.use('/mobil',mobilRouter);
 

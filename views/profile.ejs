@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+    </title>
+  </head>
+  <body>
+    <h1>Welcome <%=profile.email%></h1>
+    <%if(profile.role == 'Penjual'){%>
+      <h3><a href="/users/<%=profile.id%>/addCarTobiding">Add Car</a></h3>
+    <%}%>
+    <%if(profile.role == 'Renter'){%>
+      <h3><a href="/users/<%=profile.id%>/bid">Bid!</a></h3>
+    <%}%>
+    <h2>Item Bid list</h2>
+    <div>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Name of Car</th>
+          <th>Last Bids</th>
+          <th>Time</th>
+        </tr>
+        <tr><%dataBiddings.forEach(bids=>{%>
+          <th><%=bids.id%></th>
+          <th><%=bids.MobilId%></th>
+          <th><%=bids.bid%></th>
+          <th><%=bids.createdAt%></th>
+        </tr>
+        <%})%>
+      </table>
+    </div>
+  </body>
+</html>
