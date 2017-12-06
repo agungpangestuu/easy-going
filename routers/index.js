@@ -25,13 +25,13 @@ router.post('/login',(req,res)=>{
     if(user){
       bcrypt.compare(req.body.password, user.password).then(function(result) {
         if (result) {
+          // Mail(user.email)
           // assign session if password true
           req.session.loggedIn = true
           // req.session.role = user.role  // if want role check in all page
           req.session.userid = user.id  //save userid if already login in session 
-          Mail(user.email)
-          res.send('Berhasil Login')
-          res.redirect('/') //belom diset ke mana directnya
+          // res.send('Berhasil Login')
+          res.redirect('/users') //belom diset ke mana directnya
         }
         else{
           res.render('login', {error: true}) // error is handler or return back view with error
@@ -64,7 +64,7 @@ router.post('/register',(req,res)=>{
   let dataRegis = {
     email : req.body.email,
     password : req.body.password,
-    role : 'pembeli'
+    role : 'Renter'
   }
   Models.User.create(dataRegis)
   .then(()=>{

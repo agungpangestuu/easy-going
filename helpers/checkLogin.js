@@ -1,4 +1,4 @@
-function CheckLogin() {
+function CheckLogin(req,res,next) {
   if (req.session.loggedIn) {
     next()
   }else{
