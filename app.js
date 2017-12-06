@@ -5,28 +5,19 @@ const app = express();
 const Home = require('./routers/index');
 const userRouter = require('./routers/user');
 const mobilRouter = require('./routers/mobil');
-const Models = require('./models');
+const task = require('./helpers/task');
+
 
 
 const cron = require('node-cron');
  //buat jalanin otomatis sebuat task
 cron.schedule('* * * * *', function(){
-  Models.Mobil.findAll().then(dataMobil=>{
-    dataMobil.forEach(data=>{
-      let date = new Date().getMinutes()
-      let timeleft = data.createdAt.getMinutes() + data.time
-      if (date >= timeleft){
-        data.status = false
-        Models.Mobil.update(data,{where : {id : data.id}}).then()
-        console.log(dataMobil);
-      }
-    })
-    console.log('running a task every minute');
-  })
+  task()
 });
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static('assets/css'))
 
 //use session-express 
 app.use(session({

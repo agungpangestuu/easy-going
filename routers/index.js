@@ -7,7 +7,7 @@ const router = express.Router();
 
 // Homepage
 router.get('/',(req,res)=>{
-  res.send("../views/login") // belom diset homepage
+  res.render('index') // belom diset homepage
 })
 
 //funsional route login
