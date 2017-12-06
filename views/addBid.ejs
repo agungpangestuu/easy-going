@@ -13,6 +13,7 @@
         <th>Minimum Bid</th>
         <th>Maximum Bid</th>
         <th>Time Left (in Hours)</th>
+        <th>status</th>
         <th>Owner</th>
         <th>Bid</th>
       </tr>
@@ -23,6 +24,7 @@
           <td><%=mobil.min_bid%></td>
           <td><%=mobil.max_bid%></td>
           <td align = 'center'><%=mobil.time%></td>
+          <td><%=mobil.status%></td>
           <td><%=mobil.UserId%></td>
           <%if(mobil.status){%>
             <form action="/users/<%=user.id%>/bid/<%=mobil.id%>" method="post">
