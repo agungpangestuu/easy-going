@@ -12,10 +12,12 @@
         <th>Name of Car</th>
         <th>Minimum Bid</th>
         <th>Maximum Bid</th>
-        <th>Time Left (in Hours)</th>
-        <th>status</th>
-        <th>Owner</th>
+
+        <th>Current Bid</th>
+
         <th>Bid</th>
+  
+        <th>Bid ends At</th>
       </tr>
       <tr>
         <%dataMobil.forEach(mobil=>{%>
@@ -23,53 +25,33 @@
           <td><%=mobil.name%></td>
           <td><%=mobil.min_bid%></td>
           <td><%=mobil.max_bid%></td>
-          <td align = 'center'><%=mobil.time%></td>
-          <td><%=mobil.status%></td>
-          <td><%=mobil.UserId%></td>
-          <%if(mobil.status){%>
+          <td><%=bid.bid%></td>
+          <%if(mobil.status == true){%>
             <form action="/users/<%=user.id%>/bid/<%=mobil.id%>" method="post">
-              <td><input type="text" name="bid" value=""> <input type="submit" value="Submit"></td>
-              <%}%>
+              <td><select name = "bid">
+                  <option value="<%=bid.bid + 50000%>"><%=bid.bid +50000%></option>
+                  <option value="<%=bid.bid + 100000%>"><%=bid.bid +100000%></option>
+                  <option value="<%=bid.bid + 150000%>"><%=bid.bid +150000%></option>
+                </select>
+                <input type="submit" value="Submit"></td>
+              </td>
+              
+              
             </form>
-          
+          <%}%>
           <%if(mobil.status == false){%>
-          <td>"closed"</td>  
+          <td>CLOSED</td>  
         <%}%>
+        <td align = 'center'><p id = "demo"></p></td>
+          
                 
       </tr>
-        <%})%>
-    </table>
-    
-    
-    <script>
-// Set the date we're counting down to
-var countDownDate = new Date("Dec 6, 2017 14:37:25").getTime();
-
-// Update the count down every 1 second
-var x = setInterval(function() {
-
-    // Get todays date and time
-    var now = new Date().getTime();
-    
-    // Find the distance between now an the count down date
-    var distance = countDownDate - now;
-    
-    // Time calculations for days, hours, minutes and seconds
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-    // Output the result in an element with id="demo"
-    document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-    + minutes + "m " + seconds + "s ";
-    
-    // If the count down is over, write some text 
-    if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("demo").innerHTML = "EXPIRED";
-    }
-}, 1000);
-</script>
+      
+<%})%>
+</table>
   </body>
+  
+  <script>
+  
+  </script>
 </html>
