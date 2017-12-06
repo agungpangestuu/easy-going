@@ -1,11 +1,13 @@
 const express = require('express');
+const CheckLogin = require('../helpers/checkLogin');
 const router = express.Router()
 const model = require('../models')
 
 
-router.get('/',(req,res)=>{
+router.get('/',CheckLogin,(req,res)=>{
   model.User.findAll().then(users=>{
     console.log(users);
+    console.log(req.session.userid);
     res.render('user',{dataUsers : users})
   })
 })

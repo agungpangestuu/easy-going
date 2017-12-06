@@ -1,5 +1,6 @@
 const express = require('express');
 const Models = require('../models');
+const CheckLogin = require('../helpers/checkLogin');
 
 const routers = express.Router();
 
