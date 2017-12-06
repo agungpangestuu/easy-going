@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-<title>Item List: All Items | 32auctions</title>
+<title>Easy Going</title>
 
 	
 	
@@ -147,8 +147,8 @@
 
 	<div class="row items">
 		<!-- google_ad_section_start -->
-		<%for (let i = 0; i <5; i++) {%>
-			<a href="/organizations/1/auctions/1/auction_items/1" class="col-lg-3 col-md-4 col-xs-6 item">
+		<%items.forEach(item =>{ %>
+			<a href="" class="col-lg-3 col-md-4 col-xs-6 item">
 			<div class="card">
 
 				<div class="card-tag">Featured</div>
@@ -175,19 +175,19 @@
 
 				<div class="card-block" title="Apple iPhone (Black) | Bidding ends at 10:00 pm CST on [some date]">
 
-					<h5 class="text-truncate narrow">Apple iPhone (Black)</h5>
+					<h5 class="text-truncate narrow"><%=item.name%></h5>
 
-					<p class="card-text small text-truncate text-muted narrow">Bidding ends at 10:00 pm CST on [some date]</p>
+					<p class="card-text small text-truncate text-muted narrow">Bidding ends at <%=item.time%></p>
 
-					<h6 class="text-truncate"><span class='currency-symbol'>$</span><span class='currency-amount'>120.00</span></h6>
-
-							<div class="card-text small text-truncate">Buy Now: $280.00</div>
+					<h6 class="text-truncate"><span class='currency-symbol'>IDR</span><span class='currency-amount'><%=item.min_bid%></span></h6>
+					
+						<div class="card-text small text-truncate">Buy Now: IDR <%= item.max_bid%></div>
 
 					
 
 					<div class="card-text small text-truncate text-muted">value: $299.00</div>
 
-					<div class="card-text small text-truncate text-muted">bids: 1</div>
+					<div class="card-text small text-truncate text-muted">bids: <%=item.biddings.length%></div>
 
 				</div>
 
@@ -196,7 +196,7 @@
 			</div>
 	</a>
 
-		<%}%>
+		<%})%>
 
 			
 		<!-- google_ad_section_end -->
@@ -247,7 +247,7 @@
 			</ul>
 			<div class="logo">
 				<a href="/">
-					<img alt="32auctions Logo" src="" />
+					<img src="" />
 				</a>
 			</div>
 		</div>

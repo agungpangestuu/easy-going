@@ -7,7 +7,10 @@ const router = express.Router();
 
 // Homepage
 router.get('/',(req,res)=>{
-  res.render('index') // belom diset homepage
+  Models.Mobil.findAll({include : [ Models.bidding] }).then(listItemBid =>{
+    // res.send(listItemBid)
+    res.render('index',{items : listItemBid}) // belom diset homepage
+  })
 })
 
 //funsional route login

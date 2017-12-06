@@ -9,8 +9,8 @@ module.exports = (sequelize, DataTypes) => {
     UserId: DataTypes.STRING
   });
   Mobil.associate = function (models) {
-    Mobil.belongsTo(models.User)
-    Mobil.belongsToMany(models.User, {through: 'bidding'})
+    Mobil.hasMany(models.bidding)
+    Mobil.belongsToMany(models.User, {through: models.bidding})
   };
   return Mobil;
 };
