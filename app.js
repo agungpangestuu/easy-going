@@ -6,15 +6,18 @@ const Home = require('./routers/index');
 const userRouter = require('./routers/user');
 const mobilRouter = require('./routers/mobil');
 const profileRouter = require('./routers/profile');
+const task = require('./helpers/task');
+
 
 const cron = require('node-cron');
  //buat jalanin otomatis sebuat task
 cron.schedule('* * * * *', function(){
-  console.log('running a task every minute');
+  task()
 });
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static('assets/css'))
 
 //use session-express 
 app.use(session({

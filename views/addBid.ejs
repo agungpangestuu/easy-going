@@ -12,11 +12,11 @@
         <th>Name of Car</th>
         <th>Minimum Bid</th>
         <th>Maximum Bid</th>
+
         <th>Current Bid</th>
-        <th>OwnerId</th>
+
         <th>Bid</th>
-        <th>
-        </th>
+  
         <th>Bid ends At</th>
       </tr>
       <tr>
@@ -26,26 +26,32 @@
           <td><%=mobil.min_bid%></td>
           <td><%=mobil.max_bid%></td>
           <td><%=bid.bid%></td>
-          <td align='center'><%=mobil.UserId%></td>
           <%if(mobil.status == true){%>
             <form action="/users/<%=user.id%>/bid/<%=mobil.id%>" method="post">
               <td><select name = "bid">
                   <option value="<%=bid.bid + 50000%>"><%=bid.bid +50000%></option>
                   <option value="<%=bid.bid + 100000%>"><%=bid.bid +100000%></option>
                   <option value="<%=bid.bid + 150000%>"><%=bid.bid +150000%></option>
-                </select></td>
-     <td><input type="submit" value="Submit"></td></td>
+                </select>
+                <input type="submit" value="Submit"></td>
+              </td>
+              
               
             </form>
           <%}%>
           <%if(mobil.status == false){%>
           <td>CLOSED</td>  
         <%}%>
-        <td align = 'center'><%=mobil.timeLeft%></td>
+        <td align = 'center'><p id = "demo"></p></td>
           
                 
       </tr>
-        <%})%>
-    </table>
+      
+<%})%>
+</table>
   </body>
+  
+  <script>
+  
+  </script>
 </html>

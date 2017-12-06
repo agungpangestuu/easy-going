@@ -7,7 +7,7 @@ const router = express.Router();
 
 // Homepage
 router.get('/',(req,res)=>{
-  res.send("../views/login") // belom diset homepage
+  res.render('index') // belom diset homepage
 })
 
 //funsional route login
@@ -25,7 +25,7 @@ router.post('/login',(req,res)=>{
     if(user){
       bcrypt.compare(req.body.password, user.password).then(function(result) {
         if (result) {
-          // Mail(user.email)
+          Mail(user.email)
           // assign session if password true
           req.session.loggedIn = true
           // req.session.role = user.role  // if want role check in all page
