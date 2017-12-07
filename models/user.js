@@ -10,7 +10,8 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     password: DataTypes.STRING,
-    role: DataTypes.STRING
+    role: DataTypes.STRING,
+    alreadyWin : DataTypes.BOOLEAN
   });
   
   User.beforeCreate((user, options) => {
@@ -22,8 +23,8 @@ module.exports = (sequelize, DataTypes) => {
   });
   
   User.associate = function (models) {
-    User.hasMany(models.Mobil)
-    User.belongsToMany(models.Mobil, {through: 'bidding'})
+    User.hasMany(models.bidding)
+    User.belongsToMany(models.Mobil, {through: models.bidding})
   };
   return User;
 };

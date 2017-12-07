@@ -13,9 +13,41 @@ router.get('/',(req,res)=>{
   })
 })
 
-router.get('/:id/profileBidding',(req,res)=>{
-  Models.Mobil.findById(req.params.id).then((databidding)=>{
-    res.render('itemBid',{item : databidding , loggedIn : req.session.loggedIn })
+router.get('/:CarId/profileBidding',(req,res)=>{
+  Models.Mobil.findById(req.params.CarId,{include : [ Models.User ,Models.bidding] ,order : [[ { model: Models.bidding }, 'bid'  ]]}).then((databidding)=>{
+    // res.send(databidding)
+    res.render('itemBid',{item : databidding , loggedIn : req.session.loggedIn, role : req.session.role })
+  })
+})
+
+router.post('/:CarId/profileBidding',(req,res)=>{
+  Models.bidding.find({
+    where:{UserId : req.session.userid, MobilId: req.params.CarId}
+  }).then(bid=>{
+    if(bid){
+      let dataBid = {
+        UserId:req.session.userid,
+        MobilId:req.params.CarId,
+        bid : req.body.bid
+      }
+      Models.bidding.update(dataBid,{where:{UserId:req.session.userid,MobilId:req.params.CarId}})
+      .then(update=>{
+        res.redirect('/profile')
+      })
+      
+      // res.send(dataBid)
+    }
+    else{
+      let dataBid ={
+        UserId : req.session.userid,
+        MobilId : req.params.CarId,
+        bid : req.body.amount
+      }
+      // res.send(dataBid)
+      Models.bidding.create(dataBid).then(()=>{
+        res.redirect('/profile')
+      })
+    }
   })
 })
 
@@ -34,10 +66,10 @@ router.post('/login',(req,res)=>{
     if(user){
       bcrypt.compare(req.body.password, user.password).then(function(result) {
         if (result) {
-          Mail(user.email)
+          // Mail(user.email)
           // assign session if password true
           req.session.loggedIn = true
-          // req.session.role = user.role  // if want role check in all page
+          req.session.role = user.role  // if want role check in all page
           req.session.userid = user.id  //save userid if already login in session 
           // res.send('Berhasil Login')
           res.redirect('/profile') //belom diset ke mana directnya

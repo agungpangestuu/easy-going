@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const models = require('../models');
+const CheckLogin = require('../helpers/checkLogin');
 
-
-router.get('/',(req,res)=>{
+router.get('/',CheckLogin,(req,res)=>{
   models.User.findById(req.session.userid).then((user)=>{
     models.Mobil.findAll().then((mobils)=>{
       models.bidding.findAll({
