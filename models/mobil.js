@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
 Mobil.prototype.getTimeLeft = function () {
   let now = new Date(this.createdAt)
   let time = new Date(now.setMinutes(now.getMinutes() + this.time))
-  return time
+  return `${time.getDate()}-${time.getMonth()}-${time.getFullYear()} ${time.getHours()}:${time.getMinutes()}`
 };
     
 

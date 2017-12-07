@@ -66,7 +66,11 @@ router.get('/logout',(req,res)=>{
 //funsional register route
 
 router.get('/register',(req,res)=>{
-  res.render('register')
+  let errMsg = ''
+  if(req.query.error){
+    errMsg = 'Email is already in Use'
+  }
+  res.render('register',{msg:errMsg})
 })
 
 router.post('/register',(req,res)=>{
@@ -80,7 +84,7 @@ router.post('/register',(req,res)=>{
     res.redirect('/login')
   })
   .catch((err) => {
-    console.log(err);
+    res.redirect('/register?error=true');
   })
 })
 //end fungsional route

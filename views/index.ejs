@@ -61,7 +61,7 @@
 
 						<h5 class="text-truncate narrow"><%=item.name%></h5>
 
-						<p class="card-text small text-truncate text-muted narrow">Bidding ends at <%=item.time%></p>
+						<p class="card-text small text-truncate text-muted narrow">Bidding ends at <%=item.getTimeLeft()%></p>
 
 						<h6 class="text-truncate"><span class='currency-symbol'>IDR </span><span class='currency-amount'><%=item.min_bid%></span></h6>
 						
@@ -137,7 +137,8 @@
 </footer>
 <script>
 // Set the date we're counting down to
-var countDownDate = new Date().getTime()+24000000;
+let tanggal = new Date().setHours(23)
+var countDownDate = new Date(tanggal).setMinutes(59);
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -166,10 +167,9 @@ var x = setInterval(function() {
 }, 1000);
 </script>
 	
-	<script src=""></script>
-	
-		<script src=""></script>
+<script src="https://assets.32auctions.com/assets/application-auction-rwd-7997a1c7900d03fd0116fd2ea1a897e689ed2701f37f022663d0a283ddaae3c0.js"></script>
 
+	<script src="https://assets.32auctions.com/assets/application-analytics-prod-605b019f7b4793fd0c3b42f0553c94b7366fc761b1736e8edadfa974abfa2707.js"></script>
 
 </body>
 </html>
