@@ -1,19 +1,19 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>
-    </title>
-  </head>
+<%-include('partial/headerPage',{style : "/style.css"}) %>
+<div class="" align='center'><font color = 'white'>
   <body>
-    <h1>Welcome <%=profile.email%></h1>
-    <%if(profile.role == 'Penjual'){%>
-      <h3><a href="/users/<%=profile.id%>/addCarTobiding">Add Car</a></h3>
-    <%}%>
-    <%if(profile.role == 'Renter'){%>
-      <h3><a href="/users/<%=profile.id%>/bid">Bid!</a></h3>
-    <%}%>
-    <div>
+      <h1><font color = 'white'>Welcome <%=profile.email%></font></h1>
+    </div>
+    <div class="" align='center'><font color = '#FF8C00'>
+      <%if(profile.role == 'Penjual'){%>
+        <h3><a href="/users/<%=profile.id%>/addCarTobiding">Add Car</a></h3>
+      <%}%>
+      <%if(profile.role == 'Renter'){%>
+        <h3><a href="/users/<%=profile.id%>/bid">Bid!</a></h3>
+      <%}%>  
+    </font>
+    </div>
+    
+    <div align= 'center'>
       <h2>Item Bid list</h2>
       <table>
         <tr>
@@ -36,7 +36,7 @@
         <%})%>
       </table>
     </div>
-    <div>
+    <div align = 'center'>
       <h2>Item Bid History</h2>
       <table>
         <tr>
@@ -57,4 +57,6 @@
       </table>
     </div>
   </body>
+</font>
+</div>
 </html>
