@@ -11300,9 +11300,9 @@ footer .logo img {
 }
 
 .navbar-main .navbar-brand span {
-    background: url("https://assets.32auctions.com/assets/rwd/logo/32auctions_header_logo-0a591f81816b86fb5185efe7b6da4207c406842866f5b39d4de04d944762fad7.png") no-repeat;
-    background-image: url("https://assets.32auctions.com/assets/rwd/logo/32auctions_header_logo-37d12f621794deedd9a2f68e944bc420519719dce00414d88fcafcd477637897.svg"), -webkit-linear-gradient(transparent, transparent);
-    background-image: url("https://assets.32auctions.com/assets/rwd/logo/32auctions_header_logo-37d12f621794deedd9a2f68e944bc420519719dce00414d88fcafcd477637897.svg"), linear-gradient(transparent, transparent);
+    background: url("") no-repeat;
+    background-image: url(""), -webkit-linear-gradient(transparent, transparent);
+    background-image: url(""), linear-gradient(transparent, transparent);
     display: block;
     height: 63px;
     width: 190px
@@ -13901,7 +13901,7 @@ body.confirm-modal-open #admin-cntrls-menu.in {
 
 .auction-item.show-item .title-section {
     margin-bottom: 1rem;
-    text-align: center
+    text-align:center
 }
 
 .auction-item.show-item .item-nav-links {

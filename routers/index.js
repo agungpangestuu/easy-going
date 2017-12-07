@@ -7,7 +7,16 @@ const router = express.Router();
 
 // Homepage
 router.get('/',(req,res)=>{
-  res.render('index') // belom diset homepage
+  Models.Mobil.findAll({include : [ Models.bidding] }).then(listItemBid =>{
+    // res.send(listItemBid)
+    res.render('index',{items : listItemBid ,loggedIn : req.session.loggedIn }) 
+  })
+})
+
+router.get('/:id/profileBidding',(req,res)=>{
+  Models.Mobil.findById(req.params.id).then((databidding)=>{
+    res.render('itemBid',{item : databidding , loggedIn : req.session.loggedIn })
+  })
 })
 
 //funsional route login
@@ -57,7 +66,11 @@ router.get('/logout',(req,res)=>{
 //funsional register route
 
 router.get('/register',(req,res)=>{
-  res.render('register')
+  let errMsg = ''
+  if(req.query.error){
+    errMsg = 'Email is already in Use'
+  }
+  res.render('register',{msg:errMsg})
 })
 
 router.post('/register',(req,res)=>{
@@ -71,7 +84,7 @@ router.post('/register',(req,res)=>{
     res.redirect('/login')
   })
   .catch((err) => {
-    console.log(err);
+    res.redirect('/register?error=true');
   })
 })
 //end fungsional route

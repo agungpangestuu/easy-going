@@ -1,0 +1,579 @@
+
+<!DOCTYPE html>
+<html class="font-sm" lang="en">
+<head>
+
+	<!--[if lt IE 9 ]><script>window.location = "/403.html";</script><![endif]-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+
+
+
+<title>Car Detailing | 32auctions</title>
+
+	
+	
+	<link rel="stylesheet" media="all" href="/style.css" />
+	
+
+</head>
+<body id="page-top" class="auction auction-item show-item a-nb">
+
+	
+
+	
+		<nav class="navbar navbar-dark bg-primary navbar-main">
+		<div class="container">
+			<a class="navbar-brand" href="/" aria-label="32auctions homepage"><span></span></a>
+			<button class="navbar-toggler hidden-lg-up pull-xs-right" type="button" data-toggle="collapse" data-target="#navbar-content"
+				aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navbar">
+				<i class="fa fa-bars"></i>
+			</button>
+			<div class="collapse navbar-toggleable-md" id="navbar-content">
+				<ul class="nav navbar-nav">
+					
+
+						<li class="nav-item">
+							<a class="nav-link" href="/">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/profile">Profile</a>
+						</li>
+						<%if (!loggedIn) {%>
+							<li class="nav-item gs">
+							<a class="btn btn-pink nav-link" href="/register">Get Started</a>
+							</li>
+						<%}%>
+						<li class="nav-item">
+							<%if (loggedIn) {%>
+								<a class="nav-link" href="/logout">Logout</a>
+							<%} else { %>
+								<a class="nav-link" href="/login">Login</a>
+							<%}%>
+						</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<header class="">
+
+	</header>
+
+	<nav id="auction-navbar" class="navbar navbar-light sticky">
+	<div class="container">
+	  <ul>
+	    <li><a class="btn" title="Auction Home" href="/"><i class="fa fa-home"></i></a></li>
+	    <li><a class="btn" title="My Watchlist" href="/organizations/1/auctions/1?t=watchlist"><i class="fa fa-heart"></i><span>0</span></a></li>
+	    <li><a class="btn" title="My Bids" href="/profile"><i class="fa fa-star"></i><span>
+	      
+	    </span></a></li>
+	    <li class="list-page-btn"><a class="btn" title="Item List" href="/organizations/1/auctions/1"><i class="fa fa-list"></i></a></li>
+
+	    <li class="filter">
+	      <select class="custom-select" data-apply-filter-url="https://www.32auctions.com/organizations/1/auctions/1">
+	<optgroup label="Auction Filters"><option data-filter="t=all" selected="selected" value="all">All Items (13)</option>
+	<option data-filter="t=unsold" value="unsold">Unsold Items (12)</option>
+	<option data-filter="t=no_bids" value="no_bids">Items With No Bids (5)</option></optgroup><optgroup label="Item Categories"><option data-filter="t=category&amp;v=Art" value="category-Art">Art (1)</option>
+	<option data-filter="t=category&amp;v=Bidding+Ends+Early" value="category-Bidding Ends Early">Bidding Ends Early (2)</option>
+	<option data-filter="t=category&amp;v=Collectibles" value="category-Collectibles">Collectibles (2)</option>
+	<option data-filter="t=category&amp;v=Custom+Category" value="category-Custom Category">Custom Category (3)</option>
+	<option data-filter="t=category&amp;v=Dining" value="category-Dining">Dining (1)</option>
+	<option data-filter="t=category&amp;v=Electronics" value="category-Electronics">Electronics (2)</option>
+	<option data-filter="t=category&amp;v=Events" value="category-Events">Events (1)</option>
+	<option data-filter="t=category&amp;v=Gift+Certificates" value="category-Gift Certificates">Gift Certificates (3)</option>
+	<option data-filter="t=category&amp;v=Health+%26+Beauty" value="category-Health &amp; Beauty">Health &amp; Beauty (1)</option>
+	<option data-filter="t=category&amp;v=Home+%26+Garden" value="category-Home &amp; Garden">Home &amp; Garden (2)</option>
+	<option data-filter="t=category&amp;v=Specialty+Services" value="category-Specialty Services">Specialty Services (6)</option>
+	<option data-filter="t=category&amp;v=Travel" value="category-Travel">Travel (1)</option></optgroup>
+	</select>
+	    </li>
+
+	    <li class="search-input">
+	      <form action="/organizations/1/auctions/1" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+	        <input type="hidden" name="t" id="t" value="search" />
+
+	        <div class="input-group">
+	          <input type="search" name="v" id="v" value="" class="form-control" maxlength="25" placeholder="Search" />
+	          <span class="input-group-btn">
+	            <button class="btn btn-secondary" type="submit">
+	              <i class="fa fa-search"></i>
+	            </button>
+	          </span>
+	        </div>
+	</form>			</li>
+	    <li class="search-btn">
+	      <button class="btn btn-secondary search-toggle" type="button" data-toggle="collapse" data-target="#search-bar" aria-expanded="false" aria-controls="search-bar">
+	        <i class="fa fa-search"></i>
+	      </button>
+	    </li>
+
+	  </ul>
+	</div>
+
+	<div id="search-bar" class="collapse">
+	  <form class="container search-form-sm" action="#" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+	    <div class="input-group">
+	      <input type="search" name="search_val" id="search_val" value="" class="form-control" maxlength="25" placeholder="Search" />
+	      <span class="input-group-btn">
+	      <button class="btn btn-secondary" type="submit">
+	        <i class="fa fa-search"></i>
+	      </button>
+	    </span>
+	    </div>
+	</form>	</div>
+	</nav>
+
+
+
+	<main class="brnd">
+		<div class="container">
+			
+
+			
+
+
+			
+
+
+			
+<div class="admin-msgs">
+	
+</div>
+
+
+
+<div class="row">
+
+	<div class="col-xs-12">
+		<div class="title-section">
+		<div class="item-nav-links">
+		<a href="/organizations/1/auctions/1/goto?d=p&amp;item_id=6"><i class="fa fa-caret-left"></i> PREV</a><a href="/organizations/1/auctions/1/goto?d=n&amp;item_id=6">NEXT <i class="fa fa-caret-right"></i></a>
+	</div>
+
+
+	<h2 class="h4">Car Detailing</h2>
+
+	<div class="text-muted">Your vehicle will love you for it - #123-1234</div>
+</div>
+
+<div class="row">
+	<div class="push-xl-4 col-xl-5 push-lg-4 col-lg-3 col-sm-5 col-xs-12">
+		<span class="hidden-md-up">Next Bid: $60.00+</span>
+
+		<span class="hidden-sm-down">Value: $150.00</span>
+
+		&nbsp; 
+	</div>
+
+	<div class="push-xl-0 col-xl-7 push-lg-4 col-lg-5 col-sm-7 col-xs-12 text-sm-right">Ends: Dec 8, 2017 -  7:00am CST
+<a tabindex="0" class="btn  btn-sm btn-secondary popover-btn-inline" role="button" data-toggle="popover" title="Extended Bidding" data-content="This auction has extended bidding. <a href='/pages/help.html#auction_16' target='_blank'>What is extended bidding?</a>" data-container="body" data-placement="left">
+	<i class="fa fa-info-circle"></i>
+</a></div>
+</div>
+	</div>
+
+	
+<div class="col-lg-4 col-md-5 col-xs-12 float-left lg-viewer">
+	<div class="img-section">
+	
+
+	<div class="img-box img-lg">
+		
+		<div class="inner">
+			<img src="https://assets.32auctions.com/pics/54341/M3_s550.jpg?v=20101204093828" alt="M3 s550" />
+
+			
+
+			
+
+			<i class="btn btn-sm btn-secondary fa fa-star icon" title="My Bids"></i>
+		</div>
+	</div>
+
+		<div class="row thumbs">
+				<div class="col-xs-3">
+					<div class="img-box">
+						<div class="inner">
+							<img src="https://assets.32auctions.com/pics/54341/M3_s550.jpg?v=20101204093828" alt="M3 s550" />
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-3">
+					<div class="img-box">
+						<div class="inner">
+							<img src="https://assets.32auctions.com/pics/54345/car_detail_collage_lr_s550.jpg?v=20101204093829" alt="Car detail collage lr s550" />
+						</div>
+					</div>
+				</div>
+		</div>
+
+</div>
+
+		<div class="lg-viewer-imgs" hidden>
+				<a href="https://assets.32auctions.com/pics/54341/M3.jpg?v=20101204093828" data-fancybox="lg-view-6" data-fancybox></a>
+				<a href="https://assets.32auctions.com/pics/54345/car_detail_collage_lr.jpg?v=20101204093829" data-fancybox="lg-view-6" data-fancybox></a>
+		</div>
+</div>
+
+	<div class="col-lg-8 col-md-7 col-xs-12 float-right">
+		
+
+<div class="row hidden-md-up">
+	<div class="col-sm-5 col-xs-12">Value: $150.00</div>
+
+	<div class="col-sm-7 col-xs-12 text-sm-right">Ends: Dec 8, 2017 -  7:00am CST
+<a tabindex="0" class="btn  btn-sm btn-secondary popover-btn-inline" role="button" data-toggle="popover" title="Extended Bidding" data-content="This auction has extended bidding. <a href='/pages/help.html#auction_16' target='_blank'>What is extended bidding?</a>" data-container="body" data-placement="left">
+	<i class="fa fa-info-circle"></i>
+</a></div>
+</div>
+
+<div class="card brnd-border activity-box">
+	<div class="card-block">
+
+
+			<form id="bid-form" class="bid-form" action="javascript:void(0);" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="O4nsySUpHKkroOGWxOlKfd/4GMg8715xKZ7pzIwYe9wY91YQ3MT+jQFKReL0zHeaakIgOEfRIYnf0Y/sEd123A==" />
+
+				<div>
+					<label class="col-lg-6 col-xs-12 h5" for="amount">Bidding</label>
+
+					<div class="col-lg-6 col-xs-12 text-lg-right">Next Bid: <strong>$60.00+</strong></div>
+				</div>
+
+					<div class="col-xs-12">
+						<div class="form-group">
+
+
+			<label class=" col-form-label sr-only" for="amount">My Bid Amount:</label>
+
+	<div class="">
+		<div class="input-group">
+			<div class="input-group-addon"> $</div>
+				<input type="text" name="amount" id="amount" class="form-control input-currency" placeholder="My Bid Amount" />
+							
+		</div>
+
+
+
+	</div>
+
+</div>
+					</div>
+
+					<div class="col-lg-6 col-xs-12">
+						
+<div class="btn-group bid-types" data-toggle="buttons">
+		<label class="btn btn-sm btn-primary active" for="bid_type_straight">
+			<input type="radio" name="bid_type" id="bid_type_straight" value="straight" checked="checked" />Exact Bid
+</label>		<label class="btn btn-sm btn-primary" for="bid_type_proxy">
+			<input type="radio" name="bid_type" id="bid_type_proxy" value="proxy" />Proxy Bid
+</label></div>
+					</div>
+
+				<div class="col-lg-6 col-xs-12 hidden-md-down text-lg-right add-height">
+					<div class="csp-amount-val" hidden>60.0</div>
+					Starting Bid: $60.00
+				</div>
+
+				<div class="col-lg-6 col-xs-12">
+						<a class="btn btn-block btn-primary submit-bid-btn" data-toggle="modal" data-modal-title="Confirm Your Bid" data-modal-body-id="confirm-bid-modal" data-modal-size="medium" data-target="#confirm-modal" data-submit-btn-text="Submit Bid" data-submit-form-id="bid-form" data-submit-form-url="/organizations/1/auctions/1/auction_items/6/bid" href="javascript:void(0);">Place My Bid</a>
+
+	<div class="modal fade confirm-modal brnd" id="confirm-modal" tabindex="-1" role="dialog" aria-labelledby="confirm-modal-label" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	<span aria-hidden="true">&times;</span>
+	<span class="sr-only">Close</span>
+</button>
+				<h4 class="modal-title" id="confirm-modal-label"></h4>
+			</div>
+			<div class="modal-body"></div>
+			<div class="modal-footer">
+				<div class="row">
+					<div class="offset-md-4 col-md-4 push-md-4 col-sm-6 push-sm-6">
+						<button type="button" class="btn btn-block btn-primary btn-submit"></button>
+					</div>
+					<div class="col-md-4 pull-md-4 col-sm-6 pull-sm-6">
+						<button type="button" class="btn btn-block btn-secondary btn-cancel" data-dismiss="modal"></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+						<div id="confirm-bid-modal" hidden>
+							
+<div class="alert alert-warning fade in large-bid-alert" role="alert">
+	Your bid is large. Please verify it's correct.
+</div>
+							<div>Bid Amount: <strong>$<span class="bid-amount-val"></span> </strong></div>
+							<p>Bid Type: <strong><span class="bid-type-val"></span> Bid</strong></p>
+							<div>To submit this bid, click the Submit Bid button.</div>
+						</div>
+				</div>
+
+				<div class="col-xs-12 hidden-lg-up">
+					Starting Bid: $60.00
+				</div>
+
+					<div class="col-lg-6 col-xs-12 text-lg-right add-height">
+						Minimum Bid Increment: $5.00
+					</div>
+
+</form>
+		
+
+
+
+
+			<div class="col-xs-12"><hr /></div>
+
+			<label class=" col-xs-12 h6" for="amount">Bid History</label>
+
+
+			<div class="hidden-md-down clearfix"></div>
+
+			<div class="col-lg-6 col-xs-12">
+					Number of Bids: 
+						0
+			</div>
+
+			<div class="col-lg-6 col-xs-12 text-lg-right">
+				
+			</div>
+
+
+
+
+	</div>
+</div>
+
+	<div class="row">
+
+		<div class="col-sm-8 col-xs-12">
+			
+<div class="social-btns">
+	<strong>Share</strong>
+	<a class="social-btn social-fb" title="Share on Facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u="><span class="fa-stack"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i></span></a>
+	<a class="social-btn social-twit" title="Share on Twitter" target="_blank" href="https://twitter.com/intent/tweet/?url=https%3A%2F%2Fwww.32auctions.com%2Forganizations%2F1%2Fauctions%2F1%2Fauction_items%2F6&amp;via=32auctions&amp;related=32auctions&amp;text=Check%20out%20this%20auction%20item%20Car%20Detailing"><span class="fa-stack"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></span></a>
+	<a class="social-btn social-pin" title="Share on Pinterest" target="_blank" href="https://www.pinterest.com/pin/create/button/?url=https%3A%2F%2Fwww.32auctions.com%2Forganizations%2F1%2Fauctions%2F1%2Fauction_items%2F6&amp;media=https%3A%2F%2Fassets.32auctions.com%2Fpics%2F54341%2FM3.jpg%3Fv%3D20101204093828&amp;description=Auction%20item%20%27Car%20Detailing%27%20hosted%20online%20at%2032auctions."><span class="fa-stack"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-pinterest-p fa-stack-1x fa-inverse"></i></span></a>
+	<a class="social-btn social-email" title="Share by Email" href="mailto:?body=https%3A%2F%2Fwww.32auctions.com%2Forganizations%2F1%2Fauctions%2F1%2Fauction_items%2F6&amp;subject=Check%20out%20this%20auction%20item%20Car%20Detailing%20%7C%2032auctions"><span class="fa-stack"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></a>
+</div>
+		</div>
+
+		<div class="col-sm-4 col-xs-12 text-sm-right wl-control">
+				<strong class="hidden-sm-up">Watch</strong>
+				<i class="btn btn-sm btn-secondary fa fa-heart icon wl-btn" data-item-id="6" title="My Watchlist"></i>
+
+				<strong class="hidden-xs-down">Watch</strong>
+		</div>
+
+	</div>
+
+	</div>
+
+</div>
+
+	<hr class="clearfix brnd-border" />
+
+	<div class="row ad-section">
+		<div class="col-xs-12">
+					<div class="ad">
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<ins class="adsbygoogle"
+				style="display:block"
+				data-ad-client="ca-pub-6017730913651474"
+				data-ad-slot="5035425258"
+				data-ad-format="auto"></ins>
+			<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+		</div>
+
+		</div>
+	</div>
+
+
+<hr class="clearfix brnd-border" />
+
+<div class="row">
+	<div class="col-xs-12 details-section has-donors">
+
+	<div class="item-desc col-lg-9">
+		<h5>Item Description </h5>
+		<div class="content"><div class="break-word"><p>Your vehicle will be washed and waxed.  The tires and wheels will be cleaned and shined with Black Magic, including the wheel wells.  The interior will be wiped down, dusted, and extensively vacuumed, including the trunk. An ultra-violet creme protectant will be applied to the dash.  All of the cup holders, ash trays, cracks, crevices and vents will be cleaned out.  The windows, mirrors, and door jams, including the trunk jam and the gas tank door, will be cleaned.  Rain-X will be applied to all windows to dramatically improves wet weather driving visibility.  A final inspection of vehicle will be performed to ensure your satisfaction.</p>
+
+<p>This gift certificate expires 1 year from the end of this auction.</p></div></div>
+	</div>
+
+	<div class="col-lg-3 floating-section">
+
+		<div class="card brnd-border link-pink contact-box">
+	<div class="card-block">
+		<div>
+			Have a question about this item or auction?
+			<a target="_blank" href="https://www.32auctions.com/help?a=1&amp;c=a&amp;o=1">Contact&nbsp;Us</a>
+</div>	</div>
+</div>
+
+			<div class="donor-section brnd-border one-donor">
+				<h5>Donated By </h5>
+
+				<div class="clearfix donors">
+
+						
+<div class="col-lg-12 col-md-3 col-sm-4 col-xs-6 donor-box">
+	<div class="card">
+			<div class="img-section">
+	
+
+	<div class="img-box img-lg">
+		
+		<div class="inner">
+			<img src="https://assets.32auctions.com/pics/1290890/BillsCarWash_s300.jpg?v=20140703133949" alt="Billscarwash s300" />
+
+			
+
+			
+
+			
+		</div>
+	</div>
+
+
+</div>
+		<div class="card-block break-word">
+			Bill&#39;s Car Detailing
+		</div>
+	</div>
+</div>
+
+				</div>
+
+			</div>
+
+	</div>
+
+
+		<div class=" col-lg-9">
+			<h5>Pickup/Shipping Instructions </h5>
+			<div class="content"><div class="break-word"><p>This is the location where you can provide details about how the items can be picked up, how shipping will be handled (if at all), and any information about how payments will be collected.  Include times, locations and any restrictions there may be for payment or delivery of items.  The information you share here is very helpful for winning bidders at the end of the auction.  Think like a winning bidder.  What would you need to know if you won an item in the auction?</p>
+
+<p>NOTE:  This auction is for demonstration purposes only.  None of these items are being sold by 32auctions.  Each night our system removes all participants and deletes all bids entered into this demo auction.  This means the auction will be removed from your My Auction page.  So have fun entering bids and playing around with this auction.</p></div></div>
+		</div>
+
+		<div class=" col-lg-9">
+			<h5>Shipping Options </h5>
+<div class="table-responsive shipping-options-table">
+
+	
+<table class="table table-bordered table-hover table-sm table-striped">
+	<thead class="thead-default">
+		<tr>
+			<th>Ship To</th>
+			<th>Cost</th>
+			<th colspan="1">With Another Item 
+<a tabindex="0" class="btn  btn-sm btn-secondary popover-btn-inline" role="button" data-toggle="popover" title="With Another Item" data-content="When purchasing more than 1 item in a single invoice, the With Another Item shipping cost is applied to all items except the item with the highest primary shipping cost. The With Another Item shipping cost provides a way to offer a discount when more than 1 item is purchased. Please read &lt;a href=&#39;/pages/help.html#shipping_1&#39; target=&#39;_blank&#39;&gt;How is the total shipping cost calculated?&lt;/a&gt; and &lt;a href=&#39;/pages/help.html#shipping_2&#39; target=&#39;_blank&#39;&gt;How do I offer a combined shipping discount?&lt;/a&gt; for more information." data-container="body" data-placement="left">
+	<i class="fa fa-info-circle"></i>
+</a></th>
+		</tr>
+	</thead>
+
+	<tbody>
+				<tr>
+					<td class="break-word">In-Person Pickup</td>
+					<td>$0.00</td>
+					<td>$0.00</td>
+					
+				</tr>
+				<tr>
+					<td class="break-word">Australia</td>
+					<td>$6.00</td>
+					<td>$3.00</td>
+					
+				</tr>
+				<tr>
+					<td class="break-word">Canada</td>
+					<td>$3.00</td>
+					<td>$1.50</td>
+					
+				</tr>
+				<tr>
+					<td class="break-word">United Kingdom</td>
+					<td>$5.00</td>
+					<td>$2.50</td>
+					
+				</tr>
+				<tr>
+					<td class="break-word">United States</td>
+					<td>$3.00</td>
+					<td>$1.50</td>
+					
+				</tr>
+				<tr>
+					<td class="break-word">Everywhere Else</td>
+					<td>$10.00</td>
+					<td>$4.00</td>
+					
+				</tr>
+	</tbody>
+
+</table>
+
+</div>
+		</div>
+
+
+</div>
+</div>
+
+
+
+	<div class="item-nav-links">
+		<a href="/organizations/1/auctions/1/goto?d=p&amp;item_id=6"><i class="fa fa-caret-left"></i> PREV</a><a href="/organizations/1/auctions/1/goto?d=n&amp;item_id=6">NEXT <i class="fa fa-caret-right"></i></a>
+	</div>
+
+		</div>
+	</main>
+
+	
+
+	<footer>
+	<nav class="navbar navbar-dark">
+		<div class="container">
+			<ul class="nav navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="/pages/about_us.html">About Us</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/pages/help.html">Help</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/pages/terms.html">Terms Of Use</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/pages/privacy.html">Privacy Policy</a>
+				</li>
+					<li class="nav-item pull-md-right gs">
+						<a class="btn btn-pink nav-link" href="/pages/pricing.html">Get Started</a>
+					</li>
+			</ul>
+			<div class="logo">
+				<a href="/">
+					<img alt="32auctions Logo" src="https://assets.32auctions.com/assets/rwd/logo/32_CircleOnly_white-8fc487e48d8595492b06c9308a7b09e00df001157195e7e3dfc2b67479da5d41.png" />
+				</a>
+			</div>
+		</div>
+	</nav>
+</footer>
+
+	
+	<script src="https://assets.32auctions.com/assets/application-auction-rwd-7997a1c7900d03fd0116fd2ea1a897e689ed2701f37f022663d0a283ddaae3c0.js"></script>
+	
+		<script src="https://assets.32auctions.com/assets/application-analytics-prod-605b019f7b4793fd0c3b42f0553c94b7366fc761b1736e8edadfa974abfa2707.js"></script>
+
+
+</body>
+</html>

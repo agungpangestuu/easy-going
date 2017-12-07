@@ -12,14 +12,14 @@ module.exports = (sequelize, DataTypes) => {
 Mobil.prototype.getTimeLeft = function () {
   let now = new Date(this.createdAt)
   let time = new Date(now.setMinutes(now.getMinutes() + this.time))
-  return time
+  return `${time.getDate()}-${time.getMonth()}-${time.getFullYear()} ${time.getHours()}:${time.getMinutes()}`
 };
     
 
 
   Mobil.associate = function (models) {
-    Mobil.belongsTo(models.User)
-    Mobil.belongsToMany(models.User, {through: 'bidding'})
+    Mobil.hasMany(models.bidding)
+    Mobil.belongsToMany(models.User, {through: models.bidding})
   };
   return Mobil;
 };
