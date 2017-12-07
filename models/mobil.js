@@ -8,6 +8,15 @@ module.exports = (sequelize, DataTypes) => {
     status: DataTypes.BOOLEAN,
     UserId: DataTypes.STRING
   });
+  
+Mobil.prototype.getTimeLeft = function () {
+  let now = new Date(this.createdAt)
+  let time = new Date(now.setMinutes(now.getMinutes() + this.time))
+  return time
+};
+    
+
+
   Mobil.associate = function (models) {
     Mobil.hasMany(models.bidding)
     Mobil.belongsToMany(models.User, {through: models.bidding})
