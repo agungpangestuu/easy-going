@@ -17,7 +17,7 @@ router.get('/',(req,res)=>{
           }
         }
         console.log(bids);
-        res.render('profile',{profile : user , dataMobil : mobils , dataBiddings : bids})
+        res.render('profile',{profile : user , dataMobil : mobils , dataBiddings : bids, loggedIn:req.session.loggedIn})
       })
       
     })
