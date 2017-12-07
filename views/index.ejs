@@ -1,124 +1,5 @@
+<%-include('partial/headerPage',{style : "/style.css"}) %>
 
-<!DOCTYPE html>
-<html class="font-sm" lang="en">
-<head>
-
-	<!--[if lt IE 9 ]><script>window.location = "/403.html";</script><![endif]-->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta http-equiv="x-ua-compatible" content="ie=edge">
-
-<title>Easy Going</title>
-
-	
-	
-	<link rel="stylesheet" media="all" href="style.css" />
-	
-
-</head>
-<body id="page-top" class="auction auction show-auction a-nb">
-
-	
-
-	<nav class="navbar navbar-dark bg-primary navbar-main">
-	<div class="container">
-		<a class="navbar-brand" href="/" aria-label="32auctions homepage"><span></span></a>
-		<button class="navbar-toggler hidden-lg-up pull-xs-right" type="button" data-toggle="collapse" data-target="#navbar-content"
-			aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navbar">
-			<i class="fa fa-bars"></i>
-		</button>
-		<div class="collapse navbar-toggleable-md" id="navbar-content">
-			<ul class="nav navbar-nav">
-				
-
-					<li class="nav-item">
-						<a class="nav-link" href="/pages/overview.html">Overview</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/32auctionsDemo">Demo Auction</a>
-					</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/pages/help.html">Help</a>
-				</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/pages/pricing.html">Pricing</a>
-					</li>
-					<li class="nav-item gs">
-						<a class="btn btn-pink nav-link" href="/pages/pricing.html">Get Started</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="https://www.32auctions.com/login">Login</a>
-					</li>
-			</ul>
-		</div>
-	</div>
-</nav>
-
-	<header class="">
-	
-</header>
-
-	<nav id="auction-navbar" class="navbar navbar-light sticky">
-	<div class="container">
-		<ul>
-			<li><a class="btn" title="Auction Home" href="https://www.32auctions.com/32auctionsDemo"><i class="fa fa-home"></i></a></li>
-			<li><a class="btn" title="My Watchlist" href="/organizations/1/auctions/1?t=watchlist"><i class="fa fa-heart"></i><span>0</span></a></li>
-			<li><a class="btn" title="My Bids" href="/organizations/1/auctions/1?t=my_bids"><i class="fa fa-star"></i><span>0</span></a></li>
-			<li class="list-page-btn"><a class="btn" title="Item List" href="/organizations/1/auctions/1"><i class="fa fa-list"></i></a></li>
-
-			<li class="filter">
-				<select class="custom-select" data-apply-filter-url="https://www.32auctions.com/organizations/1/auctions/1">
-	<optgroup label="Auction Filters"><option data-filter="t=all" selected="selected" value="all">All Items (13)</option>
-<option data-filter="t=unsold" value="unsold">Unsold Items (12)</option>
-<option data-filter="t=no_bids" value="no_bids">Items With No Bids (5)</option></optgroup><optgroup label="Item Categories"><option data-filter="t=category&amp;v=Art" value="category-Art">Art (1)</option>
-<option data-filter="t=category&amp;v=Bidding+Ends+Early" value="category-Bidding Ends Early">Bidding Ends Early (2)</option>
-<option data-filter="t=category&amp;v=Collectibles" value="category-Collectibles">Collectibles (2)</option>
-<option data-filter="t=category&amp;v=Custom+Category" value="category-Custom Category">Custom Category (3)</option>
-<option data-filter="t=category&amp;v=Dining" value="category-Dining">Dining (1)</option>
-<option data-filter="t=category&amp;v=Electronics" value="category-Electronics">Electronics (2)</option>
-<option data-filter="t=category&amp;v=Events" value="category-Events">Events (1)</option>
-<option data-filter="t=category&amp;v=Gift+Certificates" value="category-Gift Certificates">Gift Certificates (3)</option>
-<option data-filter="t=category&amp;v=Health+%26+Beauty" value="category-Health &amp; Beauty">Health &amp; Beauty (1)</option>
-<option data-filter="t=category&amp;v=Home+%26+Garden" value="category-Home &amp; Garden">Home &amp; Garden (2)</option>
-<option data-filter="t=category&amp;v=Specialty+Services" value="category-Specialty Services">Specialty Services (6)</option>
-<option data-filter="t=category&amp;v=Travel" value="category-Travel">Travel (1)</option></optgroup>
-</select>
-			</li>
-
-			<li class="search-input">
-				<form action="/organizations/1/auctions/1" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-					<input type="hidden" name="t" id="t" value="search" />
-
-					<div class="input-group">
-						<input type="search" name="v" id="v" value="" class="form-control" maxlength="25" placeholder="Search" />
-						<span class="input-group-btn">
-							<button class="btn btn-secondary" type="submit">
-								<i class="fa fa-search"></i>
-							</button>
-						</span>
-					</div>
-</form>			</li>
-			<li class="search-btn">
-				<button class="btn btn-secondary search-toggle" type="button" data-toggle="collapse" data-target="#search-bar" aria-expanded="false" aria-controls="search-bar">
-					<i class="fa fa-search"></i>
-				</button>
-			</li>
-
-		</ul>
-	</div>
-
-	<div id="search-bar" class="collapse">
-		<form class="container search-form-sm" action="#" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-			<div class="input-group">
-				<input type="search" name="search_val" id="search_val" value="" class="form-control" maxlength="25" placeholder="Search" />
-				<span class="input-group-btn">
-				<button class="btn btn-secondary" type="submit">
-					<i class="fa fa-search"></i>
-				</button>
-			</span>
-			</div>
-</form>	</div>
-</nav>
 
 
 	<main class="brnd">
@@ -137,7 +18,7 @@
 
 		<div class="col-sm-6 text-truncate">All Items <span class="entry-cnt">(1-13 of 13)</span></div>
 
-		<div class="col-sm-6 text-truncate auction-dt">Ends: Dec 6, 2017 -  7:00am CST</div>
+		<div class="col-sm-6 text-truncate auction-dt">Ends: <p id='demo'></p></div>
 	</div>
 
 	
@@ -148,53 +29,54 @@
 	<div class="row items">
 		<!-- google_ad_section_start -->
 		<%items.forEach(item =>{ %>
-			<a href="" class="col-lg-3 col-md-4 col-xs-6 item">
-			<div class="card">
+			
+			<% if (item.createdAt.getDate() == new Date().getDate()) {%>
+				
+				<a href="/<%=item.id%>/profileBidding" class="col-lg-3 col-md-4 col-xs-6 item">
+				<div class="card">
 
-				<div class="card-tag">Featured</div>
-
-				<div class="img-section">
+					<div class="img-section">
 		
 
-		<div class="img-box img-lg">
-			
-			<div class="inner">
-				<img src="https://assets.32auctions.com/pics/54329/overview-camera-20100607_s300.jpg?v=20171024111046" alt="Overview camera 20100607 s300" />
+			<div class="img-box img-lg">
+				<%if (!item.status){%>
+					<div class="img-banner">Close</div>
+				<%}%>
+				<div class="inner">
+					<img src="https://assets.32auctions.com/pics/54329/overview-camera-20100607_s300.jpg?v=20171024111046" alt="Overview camera 20100607 s300" />
 
-				
+					
 
-				<i class="btn btn-sm btn-secondary fa fa-heart icon wl-btn" data-item-id="1" title="My Watchlist"></i>
+					<i class="btn btn-sm btn-secondary fa fa-heart icon wl-btn" data-item-id="1" title="My Watchlist"></i>
 
 
-				<i class="btn btn-sm btn-secondary fa fa-star icon icon-2" title="My Bids"></i>
+					<i class="btn btn-sm btn-secondary fa fa-star icon icon-2" title="My Bids"></i>
+				</div>
 			</div>
+
+
 		</div>
 
+					<div class="card-block" title="Apple iPhone (Black) | Bidding ends at 10:00 pm CST on [some date]">
 
-	</div>
+						<h5 class="text-truncate narrow"><%=item.name%></h5>
 
-				<div class="card-block" title="Apple iPhone (Black) | Bidding ends at 10:00 pm CST on [some date]">
+						<p class="card-text small text-truncate text-muted narrow">Bidding ends at <%=item.time%></p>
 
-					<h5 class="text-truncate narrow"><%=item.name%></h5>
+						<h6 class="text-truncate"><span class='currency-symbol'>IDR </span><span class='currency-amount'><%=item.min_bid%></span></h6>
+						
+							<div class="card-text small text-truncate">Buy Now: IDR <%= item.max_bid%></div>
 
-					<p class="card-text small text-truncate text-muted narrow">Bidding ends at <%=item.time%></p>
 
-					<h6 class="text-truncate"><span class='currency-symbol'>IDR</span><span class='currency-amount'><%=item.min_bid%></span></h6>
+						<div class="card-text small text-truncate text-muted">bids: <%=item.biddings.length%></div>
+
+					</div>
+
 					
-						<div class="card-text small text-truncate">Buy Now: IDR <%= item.max_bid%></div>
-
-					
-
-					<div class="card-text small text-truncate text-muted">value: $299.00</div>
-
-					<div class="card-text small text-truncate text-muted">bids: <%=item.biddings.length%></div>
 
 				</div>
-
-				
-
-			</div>
-	</a>
+		</a>
+		<%}%>
 
 		<%})%>
 
@@ -253,7 +135,36 @@
 		</div>
 	</nav>
 </footer>
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date().getTime()+24000000;
 
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+    // Get todays date and time
+    var now = new Date().getTime();
+    
+    // Find the distance between now an the count down date
+    var distance = countDownDate - now;
+    
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    // Output the result in an element with id="demo"
+    document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+    
+    // If the count down is over, write some text 
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+    }
+}, 1000);
+</script>
 	
 	<script src=""></script>
 	

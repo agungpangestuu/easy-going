@@ -9,7 +9,13 @@ const router = express.Router();
 router.get('/',(req,res)=>{
   Models.Mobil.findAll({include : [ Models.bidding] }).then(listItemBid =>{
     // res.send(listItemBid)
-    res.render('index',{items : listItemBid}) // belom diset homepage
+    res.render('index',{items : listItemBid ,loggedIn : req.session.loggedIn }) 
+  })
+})
+
+router.get('/:id/profileBidding',(req,res)=>{
+  Models.Mobil.findById(req.params.id).then((databidding)=>{
+    res.render('itemBid',{item : databidding , loggedIn : req.session.loggedIn })
   })
 })
 
