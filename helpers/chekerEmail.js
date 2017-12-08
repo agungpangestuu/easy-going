@@ -3,7 +3,7 @@ const Mail = require('../helpers/mail')
 
 function cekEmail() {
   Models.Mobil.findAll({include :[Models.bidding],order: [ [ Models.bidding, 'bid' ,'DESC'] ]}).then(dataBidding=>{
-    res.send(dataBidding)
+
     let tempBid = 0
     let tempUserId = null
     dataBidding.forEach(data => {
