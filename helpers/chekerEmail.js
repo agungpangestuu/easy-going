@@ -18,6 +18,15 @@ function cekEmail() {
             .then((err,result)=>{
               Mail(result.email)
             })
+            Models.Mobil
+            .findById(data.biddings[i].Mobil.Id)
+            .then((err,mobil)=>{
+              Models.User
+              .findById(mobil.UserId)
+              .then((err,user)=>{
+                Mail(user.email)
+              })
+            })
           }
           // else if (!dataBidding.status && data.biddings[i].statusWin) {
           //   let updateData = {

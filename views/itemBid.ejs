@@ -26,6 +26,7 @@
 			You need to be logged in to participate. Would you like to <strong><a href="/login">login now</a></strong> or <strong><a href="/register">create an account</a></strong>?
 			</div>
 		<%}%>
+		
 		<%if (err) {%>
 			<div class="alert alert-warning fade in" role="alert">
 			Please Enter bid or higher input bid to win ...
@@ -159,7 +160,7 @@
 							Starting Bid: IDR <%=item.min_bid%>
 						<%}%>
 					</div>
-//belom diisi mao kemana
+
 					<div class="col-lg-6 col-xs-12">
 							<a class="btn btn-block btn-primary submit-bid-btn" data-toggle="modal" data-modal-title="Confirm Your Bid" data-modal-body-id="confirm-bid-modal" data-modal-size="medium" data-target="#confirm-modal" data-submit-btn-text="Submit Bid" data-submit-form-id="bid-form" data-submit-form-url="#" href="javascript:void(0);">Place My Bid</a>
 
@@ -274,8 +275,14 @@
 				<label class="col-lg-6 col-xs-12 h6" for="amount">Bid History</label>
 
 					<div class="col-lg-6 col-xs-12 text-lg-right">
-					<%if (!item.status) {%>
-						Sold For: <strong>$750.00</strong>
+					<%if (!item.status && item.biddings.length != 0) {%>
+						<%let itemTemp = 0%>
+						<%item.biddings.forEach(test => {%>
+						<%	if (test.bid > item) {%>
+								<%itemTemp =item.biddings[0].bid%>
+						<%	}%>
+					<%});%>
+						Sold For: <strong><%=itemTemp%></strong>
 					<%}%>
 					</div>
 
