@@ -30,7 +30,8 @@ router.post('/:CarId/profileBidding',(req,res)=>{
           MobilId:req.params.CarId,
           bid : req.body.bid
         }
-        Models.bidding.update(dataBid,{where:{id : bid.id}})
+        Models.bidding.update(dataBid,{where:{UserId:req.session.userid,
+        MobilId:req.params.CarId,}})
         .then(update=>{
           res.redirect('/profile')
         })
