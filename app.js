@@ -8,7 +8,7 @@ const mobilRouter = require('./routers/mobil');
 const profileRouter = require('./routers/profile');
 const task = require('./helpers/task');
 const cekWinner = require('./helpers/cekWinner');
-const cekEmail = require('./helpers/cekEmail');
+const cekEmail = require('./helpers/chekerEmail');
 
 const cron = require('node-cron');
  //buat jalanin otomatis sebuat task
