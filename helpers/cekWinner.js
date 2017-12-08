@@ -5,7 +5,7 @@ function cekWinner() {
     let tempBid = 0
     let tempUserId = null
     dataBidding.forEach(data => {
-      if (!dataBidding.status && data.biddings.length == 1) {
+      if (!dataBidding.status && data.biddings.length == 1 && data.biddings[0].statusWin == null) {
         let updateData = {
           statusWin : true,
           alreadyEmail :false
