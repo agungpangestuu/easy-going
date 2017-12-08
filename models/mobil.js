@@ -14,8 +14,12 @@ Mobil.prototype.getTimeLeft = function () {
   let time = new Date(now.setMinutes(now.getMinutes() + this.time))
   return `${time.getDate()}-${time.getMonth()}-${time.getFullYear()} ${time.getHours()}:${time.getMinutes()}`
 };
-    
-
+  
+Mobil.prototype.getLeft = function () {
+  let now = new Date(this.createdAt)
+  let time = new Date(now.setMinutes(now.getMinutes() + this.time))
+  return time
+};
 
   Mobil.associate = function (models) {
     Mobil.hasMany(models.bidding)
