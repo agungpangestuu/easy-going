@@ -26,6 +26,12 @@
 			You need to be logged in to participate. Would you like to <strong><a href="/login">login now</a></strong> or <strong><a href="/register">create an account</a></strong>?
 			</div>
 		<%}%>
+		<%if (err) {%>
+			<div class="alert alert-warning fade in" role="alert">
+			Please Enter bid or higher input bid to win ...
+			</div>
+		<%}%>
+		
 
 	<h2 class="h4"><%=item.name%></h2>
 
@@ -129,6 +135,7 @@
 			<div class="input-group">
 				<div class="input-group-addon">IDR</div>
 					<input type="text" name="amount" id="amount" class="form-control input-currency" placeholder="My Bid Amount" />
+					<input type="hidden" name="min_bid" value = "<%=item.min_bid%>" />
 			</div>
 
 
