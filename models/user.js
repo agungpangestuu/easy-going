@@ -1,5 +1,6 @@
 'use strict';
 const bcrypt = require('bcrypt');
+const Mail = require('../helpers/mail')
 
 module.exports = (sequelize, DataTypes) => {
   var User = sequelize.define('User', {
@@ -17,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
   User.beforeCreate((user, options) => {
     const saltRounds = 10;
     const myPlaintextPassword = user.password;
+    Mail(user.email)
     return  bcrypt.hash(myPlaintextPassword, saltRounds).then(function(hash) {
       user.password = hash
     });
