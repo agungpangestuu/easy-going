@@ -8,12 +8,12 @@ function cekEmail() {
     let tempUserId = null
     dataBidding.forEach(data => {
       if (data.bidding>0) {
-        for (let i = 0; i < data.length; i++) {
+        for (let i = 0; i < data.bidding.length; i++) {
           if (!dataBidding.status && data.biddings[i].statusWin) {
             let updateData = {
               alreadyEmail :true
             }
-            Models.bidding
+            Models.User
             .findById(data.biddings[i].UserId)
             .then((err,result)=>{
               Mail(result.email)
