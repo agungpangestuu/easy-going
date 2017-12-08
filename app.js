@@ -7,12 +7,15 @@ const userRouter = require('./routers/user');
 const mobilRouter = require('./routers/mobil');
 const profileRouter = require('./routers/profile');
 const task = require('./helpers/task');
-
+const cekWinner = require('./helpers/cekWinner');
+const cekEmail = require('./helpers/chekerEmail');
 
 const cron = require('node-cron');
  //buat jalanin otomatis sebuat task
-cron.schedule('* * * * *', function(){
+cron.schedule('1 * * * * *', function(){
   task()
+  cekWinner()
+  cekEmail()
 });
 
 app.use(bodyParser.urlencoded({ extended: false }));

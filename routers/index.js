@@ -2,7 +2,6 @@ const express = require('express');
 const Models = require('../models');
 const bcrypt = require('bcrypt');
 const CheckLogin = require('../helpers/checkLogin');
-const Mail = require('../helpers/mail');
 const router = express.Router();
 
 // Homepage
@@ -10,45 +9,53 @@ router.get('/',(req,res)=>{
   Models.Mobil.findAll({include : [ Models.bidding] }).then(listItemBid =>{
     // res.send(listItemBid)
     res.render('index',{items : listItemBid ,loggedIn : req.session.loggedIn }) 
-  })
+  })  
 })
 
 router.get('/:CarId/profileBidding',(req,res)=>{
   Models.Mobil.findById(req.params.CarId,{include : [ Models.User ,Models.bidding] ,order : [[ { model: Models.bidding }, 'bid'  ]]}).then((databidding)=>{
     // res.send(databidding)
-    res.render('itemBid',{item : databidding , loggedIn : req.session.loggedIn, role : req.session.role })
+    res.render('itemBid',{item : databidding , loggedIn : req.session.loggedIn, role : req.session.role,err:false })
   })
 })
 
 router.post('/:CarId/profileBidding',(req,res)=>{
-  Models.bidding.find({
-    where:{UserId : req.session.userid, MobilId: req.params.CarId}
-  }).then(bid=>{
-    if(bid){
-      let dataBid = {
-        UserId:req.session.userid,
-        MobilId:req.params.CarId,
-        bid : req.body.bid
+  if (req.body.amount>req.body.min_bid) {
+    Models.bidding.find({
+      where:{UserId : req.session.userid, MobilId: req.params.CarId}
+    }).then(bid=>{
+      if(bid){
+        let dataBid = {
+          UserId:req.session.userid,
+          MobilId:req.params.CarId,
+          bid : req.body.bid
+        }
+        Models.bidding.update(dataBid,{where:{UserId:req.session.userid,
+        MobilId:req.params.CarId,}})
+        .then(update=>{
+          res.redirect('/profile')
+        })
+        
+        // res.send(dataBid)
       }
-      Models.bidding.update(dataBid,{where:{UserId:req.session.userid,MobilId:req.params.CarId}})
-      .then(update=>{
-        res.redirect('/profile')
-      })
-      
-      // res.send(dataBid)
-    }
-    else{
-      let dataBid ={
-        UserId : req.session.userid,
-        MobilId : req.params.CarId,
-        bid : req.body.amount
+      else{
+        let dataBid ={
+          UserId : req.session.userid,
+          MobilId : req.params.CarId,
+          bid : req.body.amount
+        }
+        // res.send(dataBid)
+        Models.bidding.create(dataBid).then(()=>{
+          res.redirect('/profile')
+        })
       }
-      // res.send(dataBid)
-      Models.bidding.create(dataBid).then(()=>{
-        res.redirect('/profile')
-      })
-    }
-  })
+    })
+  } else {
+    Models.Mobil.findById(req.params.CarId,{include : [ Models.User ,Models.bidding] ,order : [[ { model: Models.bidding }, 'bid'  ]]}).then((databidding)=>{
+      // res.send(databidding)
+      res.render('itemBid',{item : databidding , loggedIn : req.session.loggedIn, role : req.session.role,err:true })
+    })
+  }
 })
 
 //funsional route login
