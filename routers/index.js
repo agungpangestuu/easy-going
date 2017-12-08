@@ -20,7 +20,9 @@ router.get('/:CarId/profileBidding',(req,res)=>{
 })
 
 router.post('/:CarId/profileBidding',(req,res)=>{
-  if (req.body.amount>req.body.min_bid) {
+  let dataAmount = Number(req.body.amount.replace(/[^0-9\.]+/g,""))
+  // res.send(req.body)
+  if (dataAmount > req.body.min_bid) {
     Models.bidding.find({
       where:{UserId : req.session.userid, MobilId: req.params.CarId}
     }).then(bid=>{
@@ -50,7 +52,7 @@ router.post('/:CarId/profileBidding',(req,res)=>{
         })
       }
     })
-  } else {
+  } else  if (dataAmount < req.body.min_bid) {
     Models.Mobil.findById(req.params.CarId,{include : [ Models.User ,Models.bidding] ,order : [[ { model: Models.bidding }, 'bid'  ]]}).then((databidding)=>{
       // res.send(databidding)
       res.render('itemBid',{item : databidding , loggedIn : req.session.loggedIn, role : req.session.role,err:true })

@@ -25,9 +25,7 @@
 			<div class="alert alert-warning fade in" role="alert">
 			You need to be logged in to participate. Would you like to <strong><a href="/login">login now</a></strong> or <strong><a href="/register">create an account</a></strong>?
 			</div>
-		<%}%>
-		
-		<%if (err) {%>
+		<%}else if (err) {%>
 			<div class="alert alert-warning fade in" role="alert">
 			Please Enter bid or higher input bid to win ...
 			</div>
@@ -41,7 +39,7 @@
 
 <div class="row">
 	<div class="push-xl-4 col-xl-5 push-lg-4 col-lg-3 col-sm-5 col-xs-12">
-		<span class="hidden-md-up">Next Bid: $60.00+</span>
+		<span class="hidden-md-up">Next Bid: 5.000+</span>
 
 		<span class="hidden-sm-down">Value: IDR <%=item.min_bid%></span>
 
@@ -105,7 +103,7 @@
 		
 
 <div class="row hidden-md-up">
-	<div class="col-sm-5 col-xs-12">Value: $150.00</div>
+	<div class="col-sm-5 col-xs-12">Value: </div>
 
 	<div class="col-sm-7 col-xs-12 text-sm-right">
 <a tabindex="0" class="btn  btn-sm btn-secondary popover-btn-inline" role="button" data-toggle="popover" title="Extended Bidding" data-content="This auction has extended bidding. <a href='/pages/help.html#auction_16' target='_blank'>What is extended bidding?</a>" data-container="body" data-placement="left">
