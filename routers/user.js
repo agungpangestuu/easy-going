@@ -31,7 +31,7 @@ router.post('/:id/addCarTobiding', (req,res)=>{
   // console.log("masuk ke post")
   model.Mobil.create(dataMobil).then(()=>{
     console.log('Mobil Added')
-    res.redirect('/mobil')
+    res.redirect('/')
   })
 })
 

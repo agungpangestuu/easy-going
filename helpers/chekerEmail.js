@@ -7,6 +7,12 @@ function cekEmail() {
     let tempBid = 0
     let tempUserId = null
     dataBidding.forEach(data => {
+      if (data.bidding>0) {
+        for (let i = 0; i < data.bidding.length; i++) {
+          if (!dataBidding.status && data.biddings[i].statusWin) {
+            let updateData = {
+              alreadyEmail :true
+            }
       Models.Mobil.findById(data.MobilId).then((err,row)=>{
         if (!row.status && data.statusWin == true && data.alreadyEmail == false) {
           let updateData = {
